@@ -18,8 +18,7 @@
 # from beartype.claw import beartype_all  # <-- you didn't sign up for this
 # beartype_all(conf=BeartypeConf(violation_type=UserWarning))    # <-- emit warnings from all code
 
-from api.utils.log_utils import initRootLogger
-initRootLogger("ragflow_server")
+
 
 import logging
 import os
@@ -28,7 +27,8 @@ import sys
 import time
 import traceback
 from concurrent.futures import ThreadPoolExecutor
-
+project_root = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+sys.path.append(project_root)
 from werkzeug.serving import run_simple
 from api import settings
 from api.apps import app
@@ -41,7 +41,10 @@ from api.db.init_data import init_web_data
 from api.versions import get_ragflow_version
 from api.utils import show_configs
 from rag.settings import print_rag_settings
-
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
+sys.path.append(project_root)
+from api.utils.log_utils import initRootLogger
+initRootLogger("ragflow_server")
 
 def update_progress():
     while True:

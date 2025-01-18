@@ -13,10 +13,6 @@ minio:
   user: 'rag_flow'
   password: 'infini_rag_flow'
   host: 'minio:9000'
-es:
-  hosts: 'http://es01:1200'
-  username: 'elastic'
-  password: 'infini_rag_flow'
 infinity:
   uri: 'infinity:23817'
   db_name: 'default_db'
@@ -24,6 +20,13 @@ redis:
   db: 1
   password: 'infini_rag_flow'
   host: 'redis:6379'
+  
+vector_db:
+  type: 'pinecone'
+  api_key: "pcsk_4CG4CH_ThVkfH5ieduu2Pyn1YeN5XseyvfMKFkYbgMDrwh7uXs9UxxLChHoysz2mh9PgCm"
+  environment: 'us-east-1'
+  index_name: 'chatbot'
+  embedding_dim: 3072
 
 # postgres:
 #   name: 'rag_flow'

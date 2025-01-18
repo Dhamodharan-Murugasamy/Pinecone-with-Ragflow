@@ -108,7 +108,7 @@ def update():
                 settings.docStoreConn.update({"kb_id": kb.id}, {PAGERANK_FLD: req["pagerank"]},
                                          search.index_name(kb.tenant_id), kb.id)
             else:
-                # Elasticsearch requires PAGERANK_FLD be non-zero!
+                #  PAGERANK_FLD be non-zero!
                 settings.docStoreConn.update({"exist": PAGERANK_FLD}, {"remove": PAGERANK_FLD},
                                          search.index_name(kb.tenant_id), kb.id)
 
